@@ -1,1 +1,7 @@
 Contains the results from Experiments
+
+
+noFs.py - used in 5.3 and 5.4 for START and NONE feature selection sets
+IG.py - used in 5.3 and 5.4 for IG feature selection sets
+CFS.py - used in 5.3 and 5.4 for CFS feature selection sets
+Wrapper.py - used in 5.3 and 5.4 for wrapper feature selection sets
