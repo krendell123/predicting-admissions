@@ -13,18 +13,18 @@ from weka.attribute_selection import ASSearch, ASEvaluation, AttributeSelection
 jvm.start()
 
 try:
-	# LOAD FILE
+	# LOAD FILE - use either sixFeatures.csv or elevenFeatures.csv
 	loader = Loader(classname="weka.core.converters.CSVLoader")
 	data = loader.load_file("/project/RDS-FEI-HospitalAdmissions-RW/ArtemisTraining/20Presenting/1.5Wrapper/elevenFeatures.csv")
 
-	# PREPROCESS - turn numeric to nominal
+	# PREPROCESS - turn numeric to nominal features
 	numToNom = Filter(classname="weka.filters.unsupervised.attribute.NumericToNominal", options=["-R","first-last"])
 	numToNom.inputformat(data)
 	data = numToNom.filter(data)
 	data.class_is_last()
 	print(data.summary(data))
 
-	# CLASSIFIERS
+	# CLASSIFIERS - repeat wih all
 	classifiers = [
 		("Bayesian Network", Classifier(classname="weka.classifiers.bayes.BayesNet")),
 	#	("Decision Tree", Classifier(classname="weka.classifiers.trees.J48")),
@@ -34,6 +34,7 @@ try:
 	#	("Nearest Neighbour", Classifier(classname="weka.classifiers.lazy.IBk"))),
 	]
 	
+	# Evaluation - use same classifier in wrapper function
 	for name, cls in classifiers:
 		# Use CFS to find subset of attributes
 		print("Attribute Selection " + name)
