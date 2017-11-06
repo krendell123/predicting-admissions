@@ -13,7 +13,7 @@ import weka.plot.classifiers as plot_cls
 jvm.start()
 
 try: 
-	# LOAD FILE
+	# LOAD FILE - load either sixFeature.csv (domain feature selection) or elevenFeatures.csv (no feature selection)
 	loader = Loader(classname="weka.core.converters.CSVLoader")
 	data = loader.load_file("sixFeatures.csv")
 
