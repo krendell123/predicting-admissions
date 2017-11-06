@@ -13,7 +13,7 @@ from weka.attribute_selection import ASSearch, ASEvaluation, AttributeSelection
 jvm.start()
 
 try: 
-	# LOAD FILE
+	# LOAD FILE - use elevenFeature.csv
 	loader = Loader(classname="weka.core.converters.CSVLoader")
 	data = loader.load_file("/project/RDS-FEI-HospitalAdmissions-RW/ArtemisTraining/20Presenting/1.4CFS/elevenFeatures.csv")
 
@@ -52,10 +52,10 @@ try:
 	# CLASSIFIERS
 	classifiers = [
 		("Bayesian Network", Classifier(classname="weka.classifiers.bayes.BayesNet")),
-		("Decision Tree", Classifier(classname="weka.classifiers.trees.J48")),
-		("Logistic Regression", Classifier(classname="weka.classifiers.functions.Logistic")),
+	#	("Decision Tree", Classifier(classname="weka.classifiers.trees.J48")),
+	#	("Logistic Regression", Classifier(classname="weka.classifiers.functions.Logistic")),
 	#	("Multilayer Perceptron", Classifier(classname="weka.classifiers.functions.MultilayerPerceptron")),
-		("Naive Bayes", Classifier(classname="weka.classifiers.bayes.NaiveBayes")),
+	#	("Naive Bayes", Classifier(classname="weka.classifiers.bayes.NaiveBayes")),
 	#	("Nearest Neighbour", Classifier(classname="weka.classifiers.lazy.IBk"))),
 	]
 
